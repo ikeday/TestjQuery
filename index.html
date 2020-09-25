@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testing jQuery</title>
+<style>
+html{
+	height: 500px;
+	width: 640px;
+	margin: 2px;
+}
+
+body{
+	height: 480px;
+	width: 640px;
+	margin: 2px;
+}
+
+#container{
+	height: 476px;
+	width: 636px;
+	display: grid;
+	grid-template-rows: 100px 1fr;
+	grid-template-columns: 1fr;
+	padding: 1px;
+}
+
+#iFrame1{
+	grid-row: 1/2;
+	grid-column: 1/2;
+	height: 96px;
+	width: 636px;
+}
+
+#iFrame2{
+	grid-row: 2/3;
+	grid-column: 1/2;
+	height: 376px;
+	width: 636px;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<iFrame id="iFrame1" src="./iFrame1.html">
+	</iFrame>
+	<iFrame id="iFrame2" src="./iFrame2.php">
+	</iFrame>
+</div>
+<div id="firsttext">first text</div>
+
+</body>
+</html>

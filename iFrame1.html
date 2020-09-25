@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../taskevents/js/jquery.quicksearch.min.js" type="text/javascript"></script>
+<script>
+var btnBool = true;
+var itr = 0;
+
+$(function(){
+	var trElement = $('div#container iFrame#iFrame2', parent.document).contents().find('tbody#eventBody tr');
+	//$('input#search').quicksearch('table tbody#eventBody tr');
+	$('input#search').quicksearch(trElement);
+	});
+</script>
+</head>
+<body>
+<button id="button">ボタン</button>
+<button id="button2">ボタン2</button>
+<form action="#">
+	規格検索：  <input type="text" name="search" value="" id="search" />
+</form>
+<div id="secondtext">second text</div>
+<script>
+$('#button').on('click', function() {
+	$('div#firsttext', parent.document).text("hello");
+	//$('div#container', parent.document).text("hello4");
+	//var iFrame2 = $('div#container iFrame#iFrame2', parent.document);
+	//var iFrame2Window = iFrame2.contentWindow;
+	//var iFrame2Document = iFrame2Window.document;
+	$('div#container iFrame#iFrame2', parent.document).contents().find('div#thirdtext').text('hello3');
+
+	//$('div#thirdtext', iFrame1Window).text("hello3");
+	// bellow worked!
+	//$('div#container iFrame#iFrame2', parent.document).attr("src", "./iFrame1.html");
+	$('div#secondtext').text("hello2");
+	//$('#button2').prop('disabled', btnBool);
+	$('#button2').on('click', function(){
+		$('div#secondtext').text("hello2goodby-" + btnBool + itr);
+		$('#button2').off('click');
+		itr++;
+	});
+	btnBool = !btnBool;
+	
+});
+</script>
+</body>
+</html>
